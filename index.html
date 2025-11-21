@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>WanderHome</title>
+    <title>WanderHome - 萌宠领养</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- 预加载字体，提升加载体验 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <script>
         tailwind.config = {
             theme: {
@@ -22,7 +29,7 @@
                         }
                     },
                     fontFamily: {
-                        cute: ['"Comic Sans MS"', '"幼圆"', 'sans-serif']
+                        cute: ['"Comic Sans MS"', '"幼圆"', '"Yuanti SC"', 'sans-serif']
                     },
                     animation: {
                         'bounce-slow': 'bounce 3s infinite',
@@ -30,6 +37,8 @@
                         'wiggle': 'wiggle 2s ease-in-out infinite',
                         'slide-up-bounce': 'slideUpBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'spin-slow': 'spin 8s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -45,6 +54,10 @@
                             '60%': { transform: 'translateY(-20px)', opacity: '1' },
                             '80%': { transform: 'translateY(10px)' },
                             '100%': { transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
                         }
                     }
                 }
@@ -53,10 +66,12 @@
     </script>
     <style>
         body {
-            font-family: "Comic Sans MS", "幼圆", sans-serif;
-            background-color: #FFF9F7;
+            font-family: "Comic Sans MS", "幼圆", "Yuanti SC", sans-serif;
+            background-color: #f3f4f6; /* 外层背景深一点，突出手机壳 */
             color: #5A4B41;
             overscroll-behavior: none;
+            margin: 0;
+            padding: 0;
         }
         /* Hide scrollbar for clean UI */
         .no-scrollbar::-webkit-scrollbar {
@@ -67,18 +82,24 @@
             scrollbar-width: none;
         }
     </style>
+<!-- 
+    重要：使用公共 CDN (esm.sh) 替代内部 CDN
+    确保 Vercel 部署后能正常加载 React 和图标库
+-->
 <script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.263.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
