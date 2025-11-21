@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Copy of Copy of Copy of Copy of 交互2.4",
+  "description": "A heartwarming stray animal protection and adoption platform featuring a cute, interactive design.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
