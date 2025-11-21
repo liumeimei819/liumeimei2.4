@@ -67,13 +67,12 @@
     <style>
         body {
             font-family: "Comic Sans MS", "幼圆", "Yuanti SC", sans-serif;
-            background-color: #f3f4f6; /* 外层背景深一点，突出手机壳 */
+            background-color: #f3f4f6;
             color: #5A4B41;
             overscroll-behavior: none;
             margin: 0;
             padding: 0;
         }
-        /* Hide scrollbar for clean UI */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -83,8 +82,7 @@
         }
     </style>
 <!-- 
-    重要：使用公共 CDN (esm.sh) 替代内部 CDN
-    确保 Vercel 部署后能正常加载 React 和图标库
+    Fixed: Use esm.sh for public deployment 
 -->
 <script type="importmap">
 {
